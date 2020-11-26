@@ -1,0 +1,61 @@
+.card {
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .container1 h3 {
+    display: inline-block;
+    font-size: 2.5vh;
+    font-weight: bold;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .container1 p {
+    display: block;
+    font-size: 2vh;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .container1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .iconsContainer {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+  }
+  
+  .icons {
+    display: inline-block;
+    margin-top: 1.5vh;
+    font-size: 2vh;
+  }
+  .textContainer {
+    width: 80%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline-block;
+  }
+  .createButton {
+    margin-bottom: 1.3rem;
+  }
+  
+  .spinner {
+    margin: 0 auto;
+    text-align: center;
+    background-color: rgba(0px 0px 0px 0);
+  }
+  .noData {
+    text-align: center;
+    margin: 0 auto;
+    font-size: 1.3rem;
+  }
