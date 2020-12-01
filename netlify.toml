@@ -4,4 +4,4 @@
   functions = "functions/"
 
 [context.production]
-  environment = { FAUNADB_ADMIN_SECRET = "fnAD7lJZBFACAG7nMCeCjSpLS-hnULiYL-6cbUoy"}
+  environment = { FAUNADB_ADMIN_SECRET = "fnAD7-7OLvACAC2BsiPyQX_QyVcnGF6D3A-1B4EW"}
