@@ -43,23 +43,6 @@ const useStyles = makeStyles((theme: Theme) =>
         },
     }),
 );
-
-// function rand() {
-//     return Math.round(Math.random() * 20) - 10;
-// }
-
-// function getModalStyle() {
-//     const top = 50 + rand();
-//     const left = 50 + rand();
-
-//     return {
-//         top: `${top}%`,
-//         left: `${left}%`,
-//         transform: `translate(-${top}%, -${left}%)`,
-//     };
-// }
-
-
 const schema = Yup.object({
     todo: Yup.string()
         .required('Add an item')
@@ -255,7 +238,7 @@ const Todos: React.SFC<TodosProps> = () => {
                                                                     </div>
 
                                                                     <div>
-                                                                        <Button variant="contained" color="primary" type="submit" className={classes.textField} >
+                                                                        <Button variant="contained" color="primary" type="submit" className={classes.textField}>
                                                                             Update Item
                                                                          </Button>
                                                                     </div>
