@@ -256,7 +256,7 @@ const Todos: React.SFC<TodosProps> = () => {
 
                                                                     <div>
                                                                         <Button variant="contained" color="primary" type="submit" className={classes.textField} >
-                                                                            Update
+                                                                            Update Item
                                                                          </Button>
                                                                     </div>
                                                                 </Grid>
@@ -277,7 +277,7 @@ const Todos: React.SFC<TodosProps> = () => {
                                             setIsUpdate(true);
                                             setOpen(true)
                                         }}>
-                                            {/* <CreateOutlinedIcon /> */}
+                                            <CreateOutlinedIcon />
                                         </IconButton>
                                         <IconButton edge="end" aria-label="delete" onClick={async () => {
                                             console.log('Delete Button', todo.ref['@ref'].id);
