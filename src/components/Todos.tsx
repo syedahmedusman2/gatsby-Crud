@@ -7,7 +7,7 @@ import * as Yup from 'yup';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { TextField, Button } from '@material-ui/core';
 import './../pages/index.module.css'
-
+import './main.css';
 const baseURL = ".netlify/functions/faunadb-crud/";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -27,8 +27,10 @@ const useStyles = makeStyles((theme: Theme) =>
             width: '100%',
             textAlign: 'center',
         },
-
-        
+        input: {
+            width: '100%',
+            textAlign: 'center',
+        },  
         
 
         paper: {
@@ -42,20 +44,20 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-function rand() {
-    return Math.round(Math.random() * 20) - 10;
-}
+// function rand() {
+//     return Math.round(Math.random() * 20) - 10;
+// }
 
-function getModalStyle() {
-    const top = 50 + rand();
-    const left = 50 + rand();
+// function getModalStyle() {
+//     const top = 50 + rand();
+//     const left = 50 + rand();
 
-    return {
-        top: `${top}%`,
-        left: `${left}%`,
-        transform: `translate(-${top}%, -${left}%)`,
-    };
-}
+//     return {
+//         top: `${top}%`,
+//         left: `${left}%`,
+//         transform: `translate(-${top}%, -${left}%)`,
+//     };
+// }
 
 
 const schema = Yup.object({
@@ -82,14 +84,8 @@ const addTodo = async (title) => {
         body: JSON.stringify({ title })
     });
     console.log(result);
-    // Swal.fire({
-    //     position: 'center',
-    //     icon: 'success',
-    //     title: 'A todo is added',
-    //     showConfirmButton: false,
-    //     timer: 1500
-    //   })
-    alert('ITEM ADDED')
+    
+
     return result;
 }
 
@@ -100,13 +96,7 @@ const deleteTodo = async (id) => {
     })
         .then(res => res.json())
         .then(data => {
-            // Swal.fire({
-            //     position: 'center',
-            //     icon: 'success',
-            //     title: 'A todo is deleted',
-            //     showConfirmButton: false,
-            //     timer: 1500
-            //   })
+           
             return data;
         })
         .catch(err => console.log(err))
@@ -119,13 +109,7 @@ const updateTodo = async (id, title) => {
     })
         .then(res => res.json())
         .then(data => {
-            // Swal.fire({
-            //     position: 'center',
-            //     icon: 'success',
-            //     title: 'A todo is updated',
-            //     showConfirmButton: false,
-            //     timer: 1500
-            //   })
+            
             return data;
         })
         .catch(err => console.log(err))
@@ -142,7 +126,7 @@ const Todos: React.SFC<TodosProps> = () => {
     const [currentId, setCurrentId] = React.useState(null);
     const [isUpdate, setIsUpdate] = React.useState(false);
     const [open, setOpen] = React.useState(false);
-    const [modalStyle] = React.useState(getModalStyle);
+    // const [modalStyle] = React.useState(getModalStyle);
     const [currentTitle,setCurrentTitle]=React.useState('');
 
     const handleOpen = () => {
@@ -192,10 +176,10 @@ const Todos: React.SFC<TodosProps> = () => {
                                             type='todo'
                                             as={TextField}
                                             variant="outlined"
-                                            label="Todo"
+                                            label="Add Item"
                                             name="todo"
                                             id="todo"
-                                            className={classes.textField}
+                                            className='input'
                                         />
                                         <br />
                                         <ErrorMessage name='todo' render={(msg: string) => (
@@ -205,7 +189,7 @@ const Todos: React.SFC<TodosProps> = () => {
                                     </div>
 
                                     <div>
-                                        <Button variant="contained" color="primary" type="submit" className={classes.textField} >
+                                        <Button variant="contained" color="primary" type="submit" className='button' >
                                             SUBMIT
                                         </Button>
                                     </div>
@@ -233,7 +217,7 @@ const Todos: React.SFC<TodosProps> = () => {
                                             aria-labelledby="simple-modal-title"
                                             aria-describedby="simple-modal-description"
                                         >
-                                            <div style={modalStyle} className={classes.paper}>
+                                            <div style={{backgroundColor:'black'}} className={classes.paper}>
                                                 <Formik
                                                     initialValues={{ todo: currentTitle }}
                                                     validationSchema={schema}
@@ -293,7 +277,7 @@ const Todos: React.SFC<TodosProps> = () => {
                                             setIsUpdate(true);
                                             setOpen(true)
                                         }}>
-                                            <CreateOutlinedIcon />
+                                            {/* <CreateOutlinedIcon /> */}
                                         </IconButton>
                                         <IconButton edge="end" aria-label="delete" onClick={async () => {
                                             console.log('Delete Button', todo.ref['@ref'].id);

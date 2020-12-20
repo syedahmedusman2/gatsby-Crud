@@ -1,0 +1,15 @@
+.input{
+    width: 80%;
+}
+
+.input:hover{
+    background-color: cornflowerblue;
+    width: 100%;
+    text-align: center;
+}
+
+body{
+    background-color: aliceblue;
+
+    
+}
